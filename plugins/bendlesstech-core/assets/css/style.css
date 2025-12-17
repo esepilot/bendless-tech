@@ -1,0 +1,364 @@
+/* BendlessTech Core Plugin Styles */
+
+:root {
+    --primary-color: #1a73e8;
+    --secondary-color: #f57c00;
+    --text-dark: #333;
+    --text-light: #666;
+    --background-light: #f9f9f9;
+    --border-color: #eee;
+    --success-color: #388e3c;
+    --error-color: #d32f2f;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+}
+
+/* WhatsApp Floating Button */
+.bendlesstech-whatsapp-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: #25d366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+    z-index: 9999;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.bendlesstech-whatsapp-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(37, 211, 102, 0.6);
+}
+
+/* Container */
+.bendlesstech-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.bendlesstech-wide-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Hero Section */
+.bendlesstech-hero {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #0d47a1 100%);
+    color: white;
+    padding: 100px 0;
+    text-align: center;
+}
+
+.bendlesstech-hero h1 {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.bendlesstech-hero p {
+    font-size: 20px;
+    margin-bottom: 30px;
+    opacity: 0.95;
+}
+
+.bendlesstech-hero .cta-button {
+    display: inline-block;
+    padding: 16px 40px;
+    background: var(--secondary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.bendlesstech-hero .cta-button:hover {
+    background: #e65100;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(245, 124, 0, 0.4);
+}
+
+/* Service Cards */
+.bendlesstech-services {
+    padding: 80px 0;
+    background: var(--background-light);
+}
+
+.bendlesstech-services h2 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 50px;
+    color: var(--text-dark);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+.service-card {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.service-card h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+.service-card p {
+    color: var(--text-light);
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+.service-card .price {
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+}
+
+.service-card .delivery {
+    font-size: 14px;
+    color: var(--text-light);
+    margin-bottom: 20px;
+}
+
+.service-card .learn-more {
+    display: inline-block;
+    padding: 12px 30px;
+    background: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.service-card .learn-more:hover {
+    background: #1557b0;
+}
+
+/* Forms */
+.bendlesstech-form {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 40px auto;
+}
+
+.bendlesstech-form h3 {
+    font-size: 28px;
+    margin-bottom: 30px;
+    color: var(--text-dark);
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.1);
+}
+
+.form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.form-group .helper-text {
+    display: block;
+    margin-top: 5px;
+    font-size: 14px;
+    color: var(--text-light);
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 16px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    background: #1557b0;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(26, 115, 232, 0.3);
+}
+
+.submit-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.form-message {
+    padding: 16px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.form-message.success {
+    background: #e8f5e9;
+    color: var(--success-color);
+    border: 1px solid #a5d6a7;
+}
+
+.form-message.error {
+    background: #ffebee;
+    color: var(--error-color);
+    border: 1px solid #ef9a9a;
+}
+
+/* Pain Points Section */
+.pain-points {
+    padding: 60px 0;
+}
+
+.pain-points h2 {
+    font-size: 32px;
+    margin-bottom: 30px;
+    color: var(--text-dark);
+}
+
+.pain-points ul {
+    list-style: none;
+    padding: 0;
+}
+
+.pain-points li {
+    padding: 15px 0 15px 40px;
+    position: relative;
+    font-size: 18px;
+    color: var(--text-light);
+}
+
+.pain-points li::before {
+    content: '✗';
+    position: absolute;
+    left: 0;
+    color: var(--error-color);
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Benefits Section */
+.benefits {
+    padding: 60px 0;
+    background: var(--background-light);
+}
+
+.benefits h2 {
+    font-size: 32px;
+    margin-bottom: 30px;
+    color: var(--text-dark);
+}
+
+.benefits ul {
+    list-style: none;
+    padding: 0;
+}
+
+.benefits li {
+    padding: 15px 0 15px 40px;
+    position: relative;
+    font-size: 18px;
+    color: var(--text-dark);
+}
+
+.benefits li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--success-color);
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .bendlesstech-hero h1 {
+        font-size: 32px;
+    }
+    
+    .bendlesstech-hero p {
+        font-size: 16px;
+    }
+    
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .bendlesstech-form {
+        padding: 25px;
+    }
+    
+    .bendlesstech-whatsapp-button {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+    }
+}
