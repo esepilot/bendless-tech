@@ -48,6 +48,7 @@ require_once STAYDESK_PATH . 'includes/class-subscription.php';
 require_once STAYDESK_PATH . 'includes/class-paystack.php';
 require_once STAYDESK_PATH . 'includes/class-dashboard.php';
 require_once STAYDESK_PATH . 'includes/class-api.php';
+require_once STAYDESK_PATH . 'includes/class-shortcodes.php';
 
 // Initialize plugin
 function run_staydesk_platform() {
@@ -59,6 +60,9 @@ function run_staydesk_platform() {
     
     // Template routing
     add_filter('template_include', 'staydesk_template_router');
+    
+    // Initialize shortcodes
+    $shortcodes = new StayDesk_Shortcodes();
     
     // Initialize hotel management
     if (is_user_logged_in()) {

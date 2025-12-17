@@ -69,6 +69,7 @@ This release contains three WordPress plugins:
 - Email notifications
 - Marketing pages (Homepage, Services, About, Contact, Privacy, Terms)
 - Frontend admin dashboard
+- **Shortcode support** - Embed pages anywhere: `[bendlesstech_home]`, `[bendlesstech_contact]`, etc.
 
 ### StayDesk Platform
 - Multi-tenant hotel management
@@ -77,6 +78,7 @@ This release contains three WordPress plugins:
 - Hotel dashboard with 9 sections
 - Monthly plan: ₦49,900
 - Yearly plan: ₦598,800 (10% off for first 10)
+- **Shortcode support** - Embed registration, dashboard: `[staydesk_register]`, `[staydesk_dashboard]`, etc.
 
 ### StayDesk Chat Widget
 - Bilingual: English + Nigerian Pidgin
@@ -95,6 +97,8 @@ This release contains three WordPress plugins:
 For detailed documentation, see:
 - `INSTALLATION.md` - Full installation guide
 - `CONFIGURATION.md` - Configuration options
+- `VIEWING-PAGES.md` - How to access frontend pages
+- `SHORTCODES.md` - Complete shortcode reference
 - `IMPLEMENTATION-SUMMARY.md` - Complete feature overview
 
 ## Version

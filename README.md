@@ -23,6 +23,7 @@ BendlessTech is a complete WordPress platform offering three core services throu
 - Email notifications system
 - Frontend admin panel for lead management
 - Complete marketing pages (Homepage, Services, About, Contact, Privacy, Terms)
+- **Shortcode support** - Embed any page anywhere using `[bendlesstech_page]`
 
 ### 🏨 StayDesk Platform Plugin
 - Multi-tenant hotel management system
@@ -35,6 +36,7 @@ BendlessTech is a complete WordPress platform offering three core services throu
 - Room and guest management
 - Revenue analytics and reports
 - Refund management system
+- **Shortcode support** - Embed dashboard, registration, and more using `[staydesk_page]`
 
 ### 💬 StayDesk Chat Widget Plugin
 - **Bilingual support:** English + Nigerian Pidgin
@@ -83,6 +85,29 @@ Configure the platform for your needs:
 
 **For detailed configuration options, see [CONFIGURATION.md](documentation/CONFIGURATION.md)**
 
+### Using Shortcodes
+
+Embed any page anywhere in your WordPress site using shortcodes:
+
+**BendlessTech Pages:**
+```
+[bendlesstech_home]
+[bendlesstech_website_service]
+[bendlesstech_inventory_service]
+[bendlesstech_about]
+[bendlesstech_contact]
+```
+
+**StayDesk Pages:**
+```
+[staydesk_landing]
+[staydesk_register]
+[staydesk_dashboard]
+[staydesk_dashboard section="bookings"]
+```
+
+**For complete shortcode reference, see [SHORTCODES.md](documentation/SHORTCODES.md)**
+
 ---
 
 ## Documentation
@@ -91,6 +116,8 @@ Comprehensive documentation is available in the `/documentation` folder:
 
 - **[Installation Guide](documentation/INSTALLATION.md)** - Step-by-step setup instructions
 - **[Configuration Guide](documentation/CONFIGURATION.md)** - Customize and configure the platform
+- **[Viewing Pages Guide](documentation/VIEWING-PAGES.md)** - How to access all frontend pages
+- **[Shortcode Guide](documentation/SHORTCODES.md)** - Embed pages anywhere using shortcodes
 - **[User Guide](documentation/USER-GUIDE.md)** - How to use the platform features
 - **[Hotel Guide](documentation/HOTEL-GUIDE.md)** - Guide for hotels using StayDesk
 - **[API Documentation](documentation/API.md)** - REST API reference

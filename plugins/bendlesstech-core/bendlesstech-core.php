@@ -40,6 +40,7 @@ require_once BENDLESSTECH_CORE_PATH . 'includes/class-forms.php';
 require_once BENDLESSTECH_CORE_PATH . 'includes/class-admin.php';
 require_once BENDLESSTECH_CORE_PATH . 'includes/class-whatsapp.php';
 require_once BENDLESSTECH_CORE_PATH . 'includes/class-email.php';
+require_once BENDLESSTECH_CORE_PATH . 'includes/class-shortcodes.php';
 
 // Initialize plugin
 function run_bendlesstech_core() {
@@ -51,6 +52,9 @@ function run_bendlesstech_core() {
     
     // Initialize WhatsApp button
     $whatsapp = new BendlessTech_WhatsApp();
+    
+    // Initialize shortcodes
+    $shortcodes = new BendlessTech_Shortcodes();
     
     // Initialize admin if user has capability
     if (is_admin() || (isset($_GET['page']) && $_GET['page'] === 'bendlesstech-admin')) {
