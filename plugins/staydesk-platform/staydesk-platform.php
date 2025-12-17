@@ -66,14 +66,47 @@ function run_staydesk_platform() {
     }
     
     // Initialize dashboard if on dashboard pages
-    if (is_user_logged_in() && strpos($_SERVER['REQUEST_URI'], '/staydesk/dashboard') !== false) {
+    if (is_user_logged_in() && isset($_SERVER['REQUEST_URI']) && strpos($_SERVER['REQUEST_URI'], '/staydesk/dashboard') !== false) {
         $dashboard = new StayDesk_Dashboard();
     }
     
-    // Initialize API
-    $api = new StayDesk_API();
+    // Register AJAX handlers
+    add_action('wp_ajax_staydesk_register_user', 'staydesk_handle_registration');
+    add_action('wp_ajax_nopriv_staydesk_register_user', 'staydesk_handle_registration');
 }
 add_action('plugins_loaded', 'run_staydesk_platform');
+
+// Handle user registration via AJAX
+function staydesk_handle_registration() {
+    check_ajax_referer('staydesk_register', 'nonce');
+    
+    $data = $_POST['data'];
+    
+    // Create WordPress user
+    $username = sanitize_user($data['username']);
+    $email = sanitize_email($data['email']);
+    $password = $data['password'];
+    
+    $user_id = wp_create_user($username, $password, $email);
+    
+    if (is_wp_error($user_id)) {
+        wp_send_json_error(array('message' => $user_id->get_error_message()));
+    }
+    
+    // Log user in
+    wp_set_current_user($user_id);
+    wp_set_auth_cookie($user_id);
+    
+    // Create hotel
+    $hotel = new StayDesk_Hotel();
+    $hotel_id = $hotel->create_hotel($data);
+    
+    if ($hotel_id) {
+        wp_send_json_success(array('hotel_id' => $hotel_id, 'user_id' => $user_id));
+    } else {
+        wp_send_json_error(array('message' => 'Failed to create hotel'));
+    }
+}
 
 // Register rewrite rules
 function staydesk_register_rewrites() {

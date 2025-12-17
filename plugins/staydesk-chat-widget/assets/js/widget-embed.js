@@ -10,9 +10,11 @@
         return;
     }
     
-    // Load the widget script
+    // Load the widget script - use relative path from current script location
     var widgetScript = document.createElement('script');
-    widgetScript.src = '<?php echo STAYDESK_WIDGET_URL; ?>assets/js/widget.js';
+    var scriptSrc = script.src;
+    var baseUrl = scriptSrc.substring(0, scriptSrc.lastIndexOf('/'));
+    widgetScript.src = baseUrl + '/widget.js';
     widgetScript.setAttribute('data-hotel-id', hotelId);
     document.body.appendChild(widgetScript);
 })();

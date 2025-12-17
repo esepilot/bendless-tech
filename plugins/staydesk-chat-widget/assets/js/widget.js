@@ -26,7 +26,7 @@
         injectStyles() {
             const link = document.createElement('link');
             link.rel = 'stylesheet';
-            link.href = '<?php echo STAYDESK_WIDGET_URL; ?>assets/css/widget.css';
+            link.href = document.currentScript.src.replace('widget.js', 'widget.css');
             document.head.appendChild(link);
         }
         

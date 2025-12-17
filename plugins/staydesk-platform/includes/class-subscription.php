@@ -20,13 +20,15 @@ class StayDesk_Subscription {
             ? date('Y-m-d', strtotime('+1 month'))
             : date('Y-m-d', strtotime('+1 year'));
         
-        // Calculate amount and discount
+        // Calculate amount and discount - with database lock to prevent race condition
         $amount = ($plan_type === 'monthly') ? STAYDESK_MONTHLY_PRICE : STAYDESK_YEARLY_PRICE;
         $discount = 0;
         $is_first_10 = false;
         
-        // Check if eligible for first 10 yearly discount
+        // Check if eligible for first 10 yearly discount with row lock
         if ($plan_type === 'yearly') {
+            $wpdb->query("LOCK TABLES {$wpdb->prefix}staydesk_subscriptions WRITE");
+            
             $count = $wpdb->get_var(
                 "SELECT COUNT(*) FROM {$wpdb->prefix}staydesk_subscriptions 
                 WHERE is_first_10_yearly = 1"
@@ -37,6 +39,8 @@ class StayDesk_Subscription {
                 $amount = $amount - $discount;
                 $is_first_10 = true;
             }
+            
+            $wpdb->query("UNLOCK TABLES");
         }
         
         $result = $wpdb->insert(
